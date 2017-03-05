@@ -4,5 +4,5 @@ from django.conf.urls.i18n import urlpatterns
 
 urlpatterns = [
     url(r'^$', SubjectListView.as_view(), name='subject-list'),
-    url(r'^(?P<id>\d+)/$', SubjectDetailView.as_view(), name='subject-detail'),
+    url(r'^(?P<pk>\d+)/$', SubjectDetailView.as_view(), name='subject-detail'),
     ]

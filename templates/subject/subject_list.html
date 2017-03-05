@@ -3,7 +3,7 @@
 {% block content %}
 	{% for subject in object_list %}
 		<li>
-			<a href="{% url 'subject:subject-detail' subject.id%}">{{subject.subj}}</a>
+			<a href="{% url 'subject:subject-detail' subject.id %}">{{subject.subj}}</a>
 			 - {{ subject.who }}
 		</li>
 	{% endfor %}

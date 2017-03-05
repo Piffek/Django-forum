@@ -20,6 +20,6 @@ from subject.views import SubjectListView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^$', include('subject.urls', namespace='subject')),
+    url(r'^', include('subject.urls', namespace='subject')),
     url(r'^accounts/', include('allauth.urls')),
 ]
