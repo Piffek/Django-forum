@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'bootstrap3',
     'subject',
     'posts',
     'users',
@@ -141,6 +142,6 @@ STATICFILES_DIRS = [
     
 SITE_ID = 1
     
-EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
         
-LOGIN_REDIRECT_URL = '/shelf/authors/'
+LOGIN_REDIRECT_URL = '/'
