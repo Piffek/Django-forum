@@ -7,15 +7,18 @@ from django.urls import reverse
 from django.template.context_processors import request
 from django.shortcuts import get_object_or_404, render, redirect
 from django.conf import settings
+from django.contrib.auth.models import User
+from django.contrib.auth import update_session_auth_hash
 
 class PostsDetailView(DetailView):
     model = Posts
-    
+
 def new_post(request):
-    if request.method == "POST":
-        newpost = Posts(text=request.POST['comment'], subj_id=request.POST['subj_id'], who_id='1')
-        newpost.save()
-        return redirect('/')
+    if request.user.is_authenticated():
+        if request.method == "POST":
+            newpost = Posts(text=request.POST['comment'], subj_id=request.POST['subj_id'], who_id=request.user.id)
+            newpost.save()
+            return redirect('/')
          
         
     
