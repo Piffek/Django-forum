@@ -14,11 +14,11 @@ class PostsDetailView(DetailView):
     model = Posts
 
 def new_post(request):
-    if request.user.is_authenticated():
-        if request.method == "POST":
-            newpost = Posts(text=request.POST['comment'], subj_id=request.POST['subj_id'], who_id=request.user.id)
-            newpost.save()
-            return redirect('/')
+    if request.method == "POST":
+        newpost = Posts(text=request.POST['comment'], subj_id=request.POST['subj_id'], who_id=request.user.id)
+        newpost.save()
+        return redirect('/')
+
          
         
     
