@@ -8,8 +8,8 @@ class Posts(models.Model):
     who = models.ForeignKey(settings.AUTH_USER_MODEL)
     when = models.DateTimeField(default = now)
     text = models.TextField(null=True, blank=True)
-    subj_id = models.ForeignKey(Subject)
+    subj = models.ForeignKey(Subject)
     
     def __str__(self):
         return "{who} {when} {text} {subj_id}".format(who=self.who, when=self.when, 
-                                                       text=self.text, subj_id=self.subj_id)
+                                                       text=self.text, subj_id=self.subj)
