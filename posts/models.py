@@ -6,7 +6,7 @@ from subject.models import Subject
 
 class Posts(models.Model):
     who = models.ForeignKey(settings.AUTH_USER_MODEL)
-    when = models.DateTimeField(default = now)
+    when = models.DateTimeField(default = now, null=True)
     text = models.TextField(null=True, blank=True)
     subj = models.ForeignKey(Subject)
     
