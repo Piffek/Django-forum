@@ -42,8 +42,8 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'bootstrap3',
-    'subject',
     'posts',
+    'subject',
     'users',
 ]
 

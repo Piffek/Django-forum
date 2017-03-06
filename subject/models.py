@@ -1,5 +1,4 @@
 from django.db import models
-from posts.models import Posts
 from django.conf import settings
 from django.utils.timezone import now
 
