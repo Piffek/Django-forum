@@ -1,5 +1,4 @@
 from django.db import models
-from posts.models import Posts
 from django.conf import settings
 from django.utils.timezone import now
 
@@ -10,5 +9,5 @@ class Subject(models.Model):
     body = models.TextField(null = True, blank = True)
     
     def __str__(self):
-        return "{who} {when} {subj} {body}".format(who=self.who, when=self.when, 
+        return "{id} {who} {when} {subj} {body}".format(id=self.id,who=self.who, when=self.when, 
                                                        subj=self.subj, body=self.body)
