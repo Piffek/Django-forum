@@ -9,12 +9,13 @@ from pip._vendor.requests.models import Request
 class SubjectListView(ListView):
     model = Subject
     
+    
 class SubjectDetailView(DetailView):
     model = Subject
 
     def get_context_data(self, **kwargs):
         context = super(SubjectDetailView, self).get_context_data(**kwargs)
-        context['posts_obj'] = Posts.objects.all()
+        context['posts_obj'] = Posts.objects.filter(subj = self.kwargs['pk']).order_by('-when')
         return context
 
 
