@@ -7,6 +7,7 @@ from django.template.context_processors import request
 from pip._vendor.requests.models import Request
 from .forms import SubjectForm
 from django.utils.timezone import now
+from django.shortcuts import get_object_or_404, render, redirect
 
 class SubjectListView(ListView):
     model = Subject
@@ -26,6 +27,7 @@ def subjectNew(request):
             post=form.save(commit=False)
             post.who = request.user
             post.save()
+            return redirect('/')
     else:
         form = SubjectForm()
     return render(request, 'subject/new_subject.html', {'form': form})
