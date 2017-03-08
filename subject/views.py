@@ -12,6 +12,10 @@ from django.shortcuts import get_object_or_404, render, redirect
 class SubjectListView(ListView):
     model = Subject
     
+    def get_context_data(self, **kwargs):
+        context['object_list'] = Subject.objects.order_by('-when')
+        return context
+    
 class SubjectDetailView(DetailView):
     model = Subject
     
