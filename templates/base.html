@@ -9,16 +9,17 @@
     </head>
 	<body>
 	{% bootstrap_messages %}
-	<div>
-	    <img src="{% static "one.jpg" %}" alt="kod">
-		<br>Menu Główne: 
-		{% if user.is_authenticated %}
-			<a class="btn btn-default" href="{% url 'account_logout' %}">Wyloguj</a> 
-		{% else %} 
-			<a class="btn btn-default" href="{% url 'account_login' %}">Zaloguj</a> <a class="btn btn-default" href="{% url 'account_signup' %}">Rejestracja</a>
-		{%endif%}
+	<div class="container">
+		    <img src="{% static "one.jpg" %}" alt="kod">
+			<br>Menu Główne: 
+			{% if user.is_authenticated %}
+				<a class="btn btn-default" href="{% url 'account_logout' %}">Wyloguj</a>
+				<a class="btn btn-success pull-right" href="{% url 'subject:subject-new' %}">Dodaj Temat</a>
+			{% else %} 
+				<a class="btn btn-default" href="{% url 'account_login' %}">Zaloguj</a> <a class="btn btn-default" href="{% url 'account_signup' %}">Rejestracja</a>
+			{%endif%}
+		    	{% block content %}
+		    	{% endblock %}
 	</div>
-	    	{% block content %}
-	    	{% endblock %}
     </body>
 </html>
