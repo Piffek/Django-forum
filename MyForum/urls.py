@@ -23,4 +23,5 @@ urlpatterns = [
     url(r'^', include('subject.urls', namespace='subject')),
     url(r'^', include('posts.urls', namespace='posts')),
     url(r'^accounts/', include('allauth.urls')),
+    url(r'^profile/',include('profiles.urls', namespace='profiles')),
 ]

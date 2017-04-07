@@ -5,7 +5,7 @@
 	<div class="row">
 		<div class="jumbotron">
 		  <h5>{{ object.when }}</h5>
-		  <h5 class="navbar-text navbar-right">Dodany przez: <a href="#" class="navbar-link">{{ object.who }}</a></h5>
+		  <h5 class="navbar-text navbar-right">Dodany przez: <a href="{% url 'profiles:profile_detail' user_name=object.who %}" class="navbar-link">{{ object.who }}</a></h5>
 		  <h1>{{ object.subj }}</h1>
 		  <p>{{ object.body }}</p>
 		 </div>
@@ -15,7 +15,7 @@
     <form method="POST" action="{% url 'posts:new_post' %}">
     {% csrf_token %}
       <div class="form-group">
-        <label for="comment">Napisz Komentarz</label>
+        <label for="comment">Write Comment</label>
         <textarea name="comment" class="form-control" rows="3"></textarea>
         <input type='hidden' name="subj_id" value="{{ object.id }}"></input>
       </div>
