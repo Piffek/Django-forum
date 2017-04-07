@@ -13,6 +13,7 @@ class SubjectListView(ListView):
     model = Subject
     
     def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['object_list'] = Subject.objects.order_by('-when')
         return context
     
