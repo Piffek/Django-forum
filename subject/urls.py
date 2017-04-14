@@ -7,4 +7,5 @@ from . import views
 urlpatterns = [
     url(r'^$', SubjectListView.as_view(), name='subject-list'),
     url(r'^(?P<pk>\d+)/$', SubjectDetailView.as_view(), name='subject-detail'),
+    url(r'^newSubject/$', views.subjectNew, name='subject-new'),
     ]
